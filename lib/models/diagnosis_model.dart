@@ -8,11 +8,21 @@ class DiagnosisModel {
 
   final String treatment;
 
+  final int? id;
+
+  final int? durationDays;
+
+  final int? recommendedHour;
+
   DiagnosisModel({
+    this.id,
+    this.durationDays,
+    this.recommendedHour,
     required this.plantName,
     required this.diseaseName,
     required this.confidence,
-    required this.treatment,
+    required this.treatment
+
   });
 
   factory DiagnosisModel.fromJson(
@@ -20,6 +30,14 @@ class DiagnosisModel {
       ) {
 
     return DiagnosisModel(
+      id: json["id"],
+
+      durationDays:
+      json["duration_days"],
+
+      recommendedHour:
+      json["recommended_hour"],
+
       plantName:
       json["plant_name"],
 

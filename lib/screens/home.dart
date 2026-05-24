@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../services/auth_service.dart';
 
+import '../services/notification_service.dart';
 import 'diagnosis_screen.dart';
+import 'history.dart';
 import 'login.dart';
 
 class Home extends StatelessWidget {
@@ -51,22 +53,61 @@ class Home extends StatelessWidget {
 
       body: Center(
 
-        child: ElevatedButton(
+        child: Column(
+          children: [
+            ElevatedButton(
 
-          onPressed: () {
+              onPressed: () {
 
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) =>
-                const DiagnosisScreen(),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) =>
+                    const DiagnosisScreen(),
+                  ),
+                );
+              },
+
+              child: const Text(
+                "Diagnostic plante",
               ),
-            );
-          },
+            ),
 
-          child: const Text(
-            "Diagnostic plante",
-          ),
+            ElevatedButton(
+              onPressed: () {
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) =>
+                    const HistoryScreen(),
+                  ),
+                );
+              },
+
+              child: const Text(
+                "Historique",
+              ),
+            ),
+            ElevatedButton(
+
+              onPressed: () {
+
+                NotificationService.showNotification(
+                  id: 1,
+
+                  title: "Traitement agricole",
+
+                  body:
+                  "Pulvériser insecticide XYZ",
+                );
+              },
+
+              child: const Text(
+                "Tester notification",
+              ),
+            ),
+          ],
         ),
       ),
     );

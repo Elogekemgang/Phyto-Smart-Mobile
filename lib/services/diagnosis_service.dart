@@ -34,4 +34,19 @@ class DiagnosisService {
       response.data["data"],
     );
   }
+
+  Future<List<DiagnosisModel>>
+  getHistory() async {
+
+    final response = await api.dio.get(
+      "/diagnosis/history",
+    );
+
+    return (response.data as List)
+        .map(
+          (e) => DiagnosisModel.fromJson(e),
+    )
+        .toList();
+  }
+  
 }
