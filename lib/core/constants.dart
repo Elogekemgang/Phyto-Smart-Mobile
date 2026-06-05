@@ -1,5 +1,5 @@
 class AppConstants {
 
   static const String baseUrl =
-      "http://192.168.1.139:8000";
+      "http://192.168.1.138:8000";
 }

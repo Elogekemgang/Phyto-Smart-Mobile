@@ -6,7 +6,6 @@ class NotificationService {
   static final FlutterLocalNotificationsPlugin
   notificationsPlugin =
   FlutterLocalNotificationsPlugin();
-
   static Future init() async {
 
     const AndroidInitializationSettings

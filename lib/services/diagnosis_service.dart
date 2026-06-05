@@ -25,14 +25,34 @@ class DiagnosisService {
       )
     });
 
+    try {
+
     final response = await api.dio.post(
       "/diagnosis/analyze",
       data: formData,
     );
 
-    return DiagnosisModel.fromJson(
-      response.data["data"],
-    );
+    if (response.data["status"] == "warning") {
+      // Ce "throw" va remonter jusqu'au "catch (e)" de ton DiagnosisScreen
+      // et affichera ton SnackBar avec le message de l'IA !
+      throw Exception(response.data["message"]);
+      //return DiagnosisModel(plantName: "plantName", diseaseName: "diseaseName", confidence: "confidence", treatment: "treatment");
+    }
+
+    // 2. Si c'est un succès absolu
+    if (response.data["status"] == "success") {
+      return DiagnosisModel.fromJson(
+        response.data["data"],
+      );
+    }
+    throw Exception("Format de réponse inattendu.");
+
+    } on DioException catch (e) {
+      // DioException permet d'attraper les erreurs HTTP (comme une erreur 500 ou 400)
+      throw Exception(e.response?.data['detail'] ?? "Erreur de connexion au serveur");
+    }
+
+
   }
 
   Future<List<DiagnosisModel>>

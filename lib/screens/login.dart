@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phytosmart_mobile/screens/home.dart';
+import 'package:phytosmart_mobile/navigation.dart';
 
 import '../services/auth_service.dart';
 
@@ -42,7 +43,7 @@ class _LoginScreenState
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (_) => Home(),
+          builder: (_) => Navigation(),
         ),
       );
     } catch (e) {
