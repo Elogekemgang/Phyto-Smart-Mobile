@@ -1,5 +1,4 @@
 class DiagnosisModel {
-
   final String plantName;
 
   final String diseaseName;
@@ -14,6 +13,12 @@ class DiagnosisModel {
 
   final int? recommendedHour;
 
+  final String dosage;
+  final String duration;
+  final String frequency;
+  final String prevention;
+  final String riskLevel;
+
   DiagnosisModel({
     this.id,
     this.durationDays,
@@ -21,34 +26,34 @@ class DiagnosisModel {
     required this.plantName,
     required this.diseaseName,
     required this.confidence,
-    required this.treatment
-
+    required this.treatment,
+    required this.dosage,
+    required this.duration,
+    required this.frequency,
+    required this.prevention,
+    required this.riskLevel,
   });
 
-  factory DiagnosisModel.fromJson(
-      Map<String, dynamic> json,
-      ) {
-
+  factory DiagnosisModel.fromJson(Map<String, dynamic> json) {
     return DiagnosisModel(
       id: json["id"],
 
-      durationDays:
-      json["duration_days"],
+      durationDays: json["duration_days"],
 
-      recommendedHour:
-      json["recommended_hour"],
+      recommendedHour: json["recommended_hour"],
 
-      plantName:
-      json["plant_name"],
+      plantName: json["plant_name"],
 
-      diseaseName:
-      json["disease_name"],
+      diseaseName: json["disease_name"],
 
-      confidence:
-      json["confidence"],
+      confidence: json["confidence"],
 
-      treatment:
-      json["treatment"],
+      treatment: json["treatment"],
+      dosage: json["dosage"],
+      duration: json["duration"],
+      frequency: json["frequency"],
+      prevention: json["prevention"],
+      riskLevel: json["risk_level"],
     );
   }
 }

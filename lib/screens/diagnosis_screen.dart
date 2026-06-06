@@ -138,6 +138,35 @@ class _DiagnosisScreenState extends State<DiagnosisScreen> {
                       const SizedBox(height: 10),
 
                       Text("Traitement : ${diagnosis!.treatment}"),
+                      const SizedBox(height: 10),
+
+                      Text(
+                        "Dosage : ${diagnosis!.dosage}",
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      Text(
+                        "Durée : ${diagnosis!.duration}",
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      Text(
+                        "Fréquence : ${diagnosis!.frequency}",
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      Text(
+                        "Prévention : ${diagnosis!.prevention}",
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      Text(
+                        "Niveau de risque : ${diagnosis!.riskLevel}",
+                      ),
                     ],
                   ),
                 ),

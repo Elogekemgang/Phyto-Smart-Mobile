@@ -52,9 +52,8 @@ class _CamerascreenState extends State<Camerascreen> with WidgetsBindingObserver
       final result = await diagnosisService.analyzeImage(imageFile);
       setState(() {
         diagnosis = result;
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ResultatsScreen(diagnosis: diagnosis,image: imageFile,)));
-
       });
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ResultatsScreen(diagnosis: diagnosis,image: imageFile,)));
     } catch (e) {
       // Si le backend renvoie un "warning" ou si la requête échoue,
       // on affiche le message personnalisé de l'IA via un SnackBar.
